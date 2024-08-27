@@ -29,8 +29,8 @@ enum class Panels {
     Boss_Home, // UNUSED, Spawn panel for Boss, face this board's boss in combat
     Decoration, // UNUSED, gain 1 decoration
     Player_Encounter // UNUSED, face a random player in combat
-}
+};
 
-class Board: public Graph {
+class Board: public Graph<Panels> {
 
 };
