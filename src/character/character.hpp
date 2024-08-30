@@ -1,10 +1,12 @@
+#pragma once
 
-class Player {
+class Character {
   private:
+    int id;
     int health;
     int attack;
     int defence;
     int evade;
   public:
-    virtual void x() = 0;
+    virtual ~Character() = 0;
 };

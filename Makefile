@@ -2,7 +2,7 @@ CXX = g++-12
 CXXFLAGS = -std=c++20 -Wall -g -MMD
 LDFLAGS = 
 SELF_DIR := $(shell pwd)
-DIRECTORIES = src src/board src/cards src/player src/player/characters src/utility
+DIRECTORIES = src src/board src/cards src/game src/player src/player/characters src/utility
 INC = $(addprefix -I$(SELF_DIR)/,$(DIRECTORIES)) -I$(SELF_DIR)/.
 BUILD_DIR = bin
 EXEC = openJuice
