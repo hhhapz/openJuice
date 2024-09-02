@@ -12,7 +12,7 @@
 
 class CharacterLibrary {
   private:
-    std::map<std::string, Character*> library {
+    std::map<int, Character*> library {
 
     };
   public:

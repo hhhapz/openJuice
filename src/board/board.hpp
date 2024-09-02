@@ -31,6 +31,18 @@ enum class Panels {
     Player_Encounter // UNUSED, face a random player in combat
 };
 
-class Board: public Graph<Panels> {
 
+
+class Board: public Graph<Panels> {
+  private:
+    int id;
+  public:
+    // Constructor
+    Board(int id, int numVertices, 
+          const std::vector<std::vector<int>>& outEdges, 
+          const std::vector<std::vector<int>>& inEdges, 
+          const std::vector<Panels>& panelData);
+    
+    // Methods
+    
 };

@@ -17,15 +17,13 @@ struct Graph {
     // Methods
     /////////////////////
 
-    // Constructor for the graph
-    Graph(int vertices);
-    // Add a directed edge from u to v
+    // Constructor
+    Graph(int numVertices);
+
+    // Methods
     void addEdge(int u, int v);
-    // Set data for a vertex
     void setVertexData(int vertex, T data);
-    // Get data for a vertex
     T getVertexData(int vertex) const;
-    // Display the graph with outgoing and incoming edges and vertex data
     void printGraph() const;
 };
 

@@ -14,7 +14,7 @@
 
 class CardLibrary {
   private:
-    std::map<std::string, Card*> library {
+    std::map<int, Card*> library {
 
     };
   public:
