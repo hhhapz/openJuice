@@ -6,6 +6,9 @@
 #include <string>
 
 #include "characters/kai.hpp"
+#include "characters/marc.hpp"
+#include "characters/qp.hpp"
+#include "characters/suguri.hpp"
 
 class CharacterLibrary {
   private:

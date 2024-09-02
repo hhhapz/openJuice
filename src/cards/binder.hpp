@@ -5,11 +5,11 @@
 #include <map>
 #include <string>
 
-#include "battle.hpp"
-#include "boost.hpp"
-#include "event.hpp"
-#include "gift.hpp"
-#include "trap.hpp"
+#include "battlecard.hpp"
+#include "boostcard.hpp"
+#include "eventcard.hpp"
+#include "giftcard.hpp"
+#include "trapcard.hpp"
 #include "../error/exceptions.hpp"
 
 class CardLibrary {
