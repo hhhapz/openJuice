@@ -1,0 +1,96 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.30"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "openJuice",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "board::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-board-Debug-5361c6b586cbf3c3cdca.json",
+					"name" : "board",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "inputParser::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-inputParser-Debug-f0a6469d100fe46f4ce1.json",
+					"name" : "inputParser",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "openJuice::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-openJuice-Debug-d3535c73101518f5f471.json",
+					"name" : "openJuice",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "panel::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-panel-Debug-c84087ea66109b6d8587.json",
+					"name" : "panel",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "stdint::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-stdint-Debug-ac37c76bd45b6a11264d.json",
+					"name" : "stdint",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/utsuho/Projects/openJuice/cmake-build-debug",
+		"source" : "/home/utsuho/Projects/openJuice"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}
