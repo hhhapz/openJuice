@@ -7,7 +7,7 @@
 
 #include <toml++/toml.hpp>
 
-#include "../utility/stdint.hpp"
+#include "../utility/utility.hpp"
 
 struct BoardInfo {
     u32 id;
@@ -19,11 +19,12 @@ struct BoardInfo {
 
 class BoardLibrary {
 private:
-    BoardLibrary() = default;
+    BoardLibrary();
     BoardLibrary(const BoardLibrary&) = delete;
     BoardLibrary& operator=(const BoardLibrary&) = delete;
-    std::map<u32, BoardInfo> boardMap;
+    std::vector<BoardInfo> boardList;
 public:
     static BoardLibrary& getInstance();
     void loadBoards(const std::string& directory = "./maps");
+    const BoardInfo& getBoard(u32 id) const;
 };

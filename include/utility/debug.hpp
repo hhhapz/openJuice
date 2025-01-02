@@ -8,12 +8,15 @@
 class Debug: public std::ostream {
 private:
     std::unique_ptr<std::ofstream> debugFile;
-public:
-    // Big Five
     Debug();
-    ~Debug();
-    Debug& operator=(Debug&& other) noexcept;
+    ~Debug() = default;
+    Debug(const Debug&) = delete;
+    Debug(Debug&&) = delete;
+    Debug& operator=(const Debug&) = delete;
+    Debug& operator=(Debug&&) = delete;
+public:
     // Methods
+    static Debug& getInstance();
     template<typename T>
     Debug& operator<<(const T& message);
 };
@@ -26,5 +29,3 @@ Debug& Debug::operator<<(const T& message) {
     }
     return *this;
 }
-
-extern Debug debugLogger;

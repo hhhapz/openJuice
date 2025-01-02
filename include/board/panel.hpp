@@ -35,6 +35,13 @@ enum class PanelType {
     Player_Encounter // 25 - UNUSED, face a random player in combat
 };
 
+enum class Direction {
+    Up, // 0
+    Left, // 1
+    Right, // 2
+    Down, //3
+};
+
 class Panel {
 private:
     u16 panelID;
@@ -44,7 +51,8 @@ private:
     std::bitset<4> exits;
     std::array<std::weak_ptr<Panel>, 4> neighbours;
 public:
-    Panel();
+    Panel(u16 id, PanelType type, const std::bitset<4>& enters, const std::bitset<4>& exits);
     PanelType getType() const;
-    void setType();
+    void setType(PanelType newType);
+    void setNeighbour(Direction direction, std::shared_ptr<Panel> neighbour);
 };

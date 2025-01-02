@@ -6,3 +6,9 @@ This does not aim to be a one-to-one recreation of the game but rather a port of
 
 ## Usage:
 To be written.
+
+## TODO:
+* Migrate the frontend from CLI printing to FTXUI
+* Implement online multiplayer functionality
+* Implement a game AI
+* Migrate the program to use modules for improved compilation speeds as soon as possible
