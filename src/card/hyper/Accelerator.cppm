@@ -3,47 +3,47 @@ module;
 #include <memory>
 #include <string>
 
-export module card.hyper.ProtagonistsPrivilege;
+export module card.hyper.Accelerator;
 
 import engine.card.Card;
 import engine.card.CardTypes;
 import engine.utility.GlobalSettings;
 import engine.utility.Utility;
 
-export class ProtagonistsPrivilege: public BoostCard {
+export class Accelerator: public BoostCard {
 private:
 public:
-    ProtagonistsPrivilege():
-        BoostCard(Rarity::None, 1, true, 3, -1, -1) {}
+    Accelerator():
+        BoostCard(Rarity::None, 4, true, 3, -1, -1) {}
 
     std::string getName() const override {
         switch (GlobalSettings::getInstance().getLanguage()) {
             case Language::English:
-                return "Protagonist's Privilege";
+                return "Accelerator";
             default:
-                return "Protagonist's Privilege";
+                return "Accelerator";
         }
     }
 
     std::string getDescription() const override {
         switch(GlobalSettings::getInstance().getLanguage()) {
             case Language::English:
-                return "Effect Duration: 3 chapters\nWhen you are allowed to attack first, the opposing unit cannot attack (once per combat).";
+                return "Effect Duration: 1 chapter\nRoll two dice for movement, battle, bonus and drop.";
             default:
-                return "Effect Duration: 3 chapters\nWhen you are allowed to attack first, the opposing unit cannot attack (once per combat).";
+                return "Effect Duration: 1 chapter\nRoll two dice for movement, battle, bonus and drop.";
         }
     }
 
     std::string getQuote() const override {
         switch(GlobalSettings::getInstance().getLanguage()) {
             case Language::English:
-                return "\"This is the privilege of the main character!\" ―Kai";
+                return "\"I'm accelerating.\" ―Suguri";
             default:
-                return "\"This is the privilege of the main character!\" ―Kai";
+                return "\"I'm accelerating.\" ―Suguri";
         }
     }   
 
     u16 getCost() const override {
-        return 20;
+        return 30;
     }
 };

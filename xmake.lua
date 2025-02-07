@@ -13,14 +13,15 @@ target("openJuice")
               "src/engine/card/types/*.cppm", 
               "src/engine/entity/*.cppm", 
               "src/engine/game/*.cppm", 
+              "src/engine/unit/*.cppm", 
               "src/engine/utility/*.cppm",
               "src/card/*.cppm", 
               "src/card/hyper/*.cppm", 
               "src/card/standard/*.cppm",
               "src/card/standard/base/*.cppm", 
-              "src/entity/*.cppm", 
-              "src/entity/bosses/*.cppm", 
-              "src/entity/characters/*.cppm", 
-              "src/entity/enemies/*.cppm"
+              "src/unit/*.cppm", 
+              "src/unit/bosses/*.cppm", 
+              "src/unit/characters/*.cppm", 
+              "src/unit/enemies/*.cppm"
     )
     set_policy("build.c++.modules", true)

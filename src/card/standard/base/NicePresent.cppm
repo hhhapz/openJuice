@@ -3,47 +3,47 @@ module;
 #include <memory>
 #include <string>
 
-export module card.standard.base.SakisCookie;
+export module card.standard.base.NicePresent;
 
 import engine.card.Card;
 import engine.card.CardTypes;
 import engine.utility.GlobalSettings;
 import engine.utility.Utility;
 
-export class SakisCookie: public BoostCard {
+export class NicePresent: public BoostCard {
 private:
 public:
-    SakisCookie():
-        BoostCard(Rarity::Common, 2, false, 1, 3, 0) {}
+    NicePresent():
+        BoostCard(Rarity::Uncommon, 5, false, 3, 1, 0) {}
 
     std::string getName() const override {
         switch (GlobalSettings::getInstance().getLanguage()) {
             case Language::English:
-                return "Saki's Cookie";
+                return "Nice Present";
             default:
-                return "Saki's Cookie";
+                return "Nice Present";
         }
     }
 
     std::string getDescription() const override {
         switch (GlobalSettings::getInstance().getLanguage()) {
             case Language::English:
-                return "Heals 1 HP.";
+                return "Draw 2 cards.";
             default:
-                return "Heals 1 HP.";
+                return "Draw 2 cards.";
         }
     }
 
     std::string getQuote() const override {
         switch (GlobalSettings::getInstance().getLanguage()) {
             case Language::English:
-                return "\"Have a cookie!\" ―Saki";
+                return "\"You're going to help me deliver the presents.\" ―Aru";
             default:
-                return "\"Have a cookie!\" ―Saki";
+                return "\"You're going to help me deliver the presents.\" ―Aru";
         }
     }
 
     u16 getCost() const override {
-        return 3;
+        return 10;
     }
 };

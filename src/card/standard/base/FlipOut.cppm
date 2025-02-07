@@ -3,47 +3,47 @@ module;
 #include <memory>
 #include <string>
 
-export module card.standard.base.SakisCookie;
+export module card.standard.base.FlipOut;
 
 import engine.card.Card;
 import engine.card.CardTypes;
 import engine.utility.GlobalSettings;
 import engine.utility.Utility;
 
-export class SakisCookie: public BoostCard {
+export class FlipOut: public BoostCard {
 private:
 public:
-    SakisCookie():
-        BoostCard(Rarity::Common, 2, false, 1, 3, 0) {}
+    FlipOut():
+        BoostCard(Rarity::Common, 3, false, 1, 3, -3) {}
 
     std::string getName() const override {
         switch (GlobalSettings::getInstance().getLanguage()) {
             case Language::English:
-                return "Saki's Cookie";
+                return "Flip Out";
             default:
-                return "Saki's Cookie";
+                return "Flip Out";
         }
     }
 
     std::string getDescription() const override {
         switch (GlobalSettings::getInstance().getLanguage()) {
             case Language::English:
-                return "Heals 1 HP.";
+                return "Stock Effect\nNext time you land on a drop panel, the player(s) with the highest number of stars will lose the same number of stars as you.";
             default:
-                return "Heals 1 HP.";
+                return "Stock Effect\nNext time you land on a drop panel, the player(s) with the highest number of stars will lose the same number of stars as you.";
         }
     }
 
     std::string getQuote() const override {
         switch (GlobalSettings::getInstance().getLanguage()) {
             case Language::English:
-                return "\"Have a cookie!\" ―Saki";
+                return "\"......!\" ―Mei";
             default:
-                return "\"Have a cookie!\" ―Saki";
+                return "\"......!\" ―Mei";
         }
     }
 
     u16 getCost() const override {
-        return 3;
+        return 0;
     }
 };

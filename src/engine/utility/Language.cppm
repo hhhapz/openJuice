@@ -1,6 +1,6 @@
 module;
 
-export module engine.utility.Language;
+export module engine.utility.GlobalSettings:Language;
 
 export enum class Language {
     English,

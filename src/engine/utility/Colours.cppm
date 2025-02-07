@@ -2,7 +2,7 @@ module;
 
 export module engine.utility.Colours;
 
-import engine.utility.Primitives;
+import engine.utility.Utility;
 
 export struct Colour {
     u8 r;

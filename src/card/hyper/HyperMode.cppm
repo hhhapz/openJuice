@@ -3,47 +3,47 @@ module;
 #include <memory>
 #include <string>
 
-export module card.hyper.ProtagonistsPrivilege;
+export module card.hyper.HyperMode;
 
 import engine.card.Card;
 import engine.card.CardTypes;
 import engine.utility.GlobalSettings;
 import engine.utility.Utility;
 
-export class ProtagonistsPrivilege: public BoostCard {
+export class HyperMode: public BattleCard {
 private:
 public:
-    ProtagonistsPrivilege():
-        BoostCard(Rarity::None, 1, true, 3, -1, -1) {}
+    HyperMode():
+        BattleCard(Rarity::None, 3, true, 1, -1, -1) {}
 
     std::string getName() const override {
         switch (GlobalSettings::getInstance().getLanguage()) {
             case Language::English:
-                return "Protagonist's Privilege";
+                return "Hyper Mode";
             default:
-                return "Protagonist's Privilege";
+                return "Hyper Mode";
         }
     }
 
     std::string getDescription() const override {
         switch(GlobalSettings::getInstance().getLanguage()) {
             case Language::English:
-                return "Effect Duration: 3 chapters\nWhen you are allowed to attack first, the opposing unit cannot attack (once per combat).";
+                return "Gain +2 ATK during this battle. If your unit suffers KO during this battle, you give no stars or Wins and the unit will revive next turn.";
             default:
-                return "Effect Duration: 3 chapters\nWhen you are allowed to attack first, the opposing unit cannot attack (once per combat).";
+                return "Gain +2 ATK during this battle. If your unit suffers KO during this battle, you give no stars or Wins and the unit will revive next turn.";
         }
     }
 
     std::string getQuote() const override {
         switch(GlobalSettings::getInstance().getLanguage()) {
             case Language::English:
-                return "\"This is the privilege of the main character!\" ―Kai";
+                return "\"HYPER MODE!\" ―QP";
             default:
-                return "\"This is the privilege of the main character!\" ―Kai";
+                return "\"HYPER MODE!\" ―QP";
         }
     }   
 
     u16 getCost() const override {
-        return 20;
+        return 10;
     }
 };

@@ -14,7 +14,7 @@ module;
 
 export module engine.utility.Utility;
 
-export import engine.utility.Primitives;
+export import :Primitives;
 
 export namespace GameInfo {
     constexpr usize GAME_MAX_WIDTH = 20;

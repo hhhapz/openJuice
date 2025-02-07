@@ -3,18 +3,18 @@ module;
 #include <memory>
 #include <string>
 
-export module card.hyper.ProtagonistsPrivilege;
+export module card.hyper.X16BigRocket;
 
 import engine.card.Card;
 import engine.card.CardTypes;
 import engine.utility.GlobalSettings;
 import engine.utility.Utility;
 
-export class ProtagonistsPrivilege: public BoostCard {
+export class X16BigRocket: public BoostCard {
 private:
 public:
-    ProtagonistsPrivilege():
-        BoostCard(Rarity::None, 1, true, 3, -1, -1) {}
+    X16BigRocket():
+        BoostCard(Rarity::None, 2, true, 1, -1, -1) {}
 
     std::string getName() const override {
         switch (GlobalSettings::getInstance().getLanguage()) {
@@ -28,22 +28,23 @@ public:
     std::string getDescription() const override {
         switch(GlobalSettings::getInstance().getLanguage()) {
             case Language::English:
-                return "Effect Duration: 3 chapters\nWhen you are allowed to attack first, the opposing unit cannot attack (once per combat).";
+                return "★Cost: Level x10\nDeal damage equal to your level to target enemy. A KO from this effect gives you 2 Wins.";
             default:
-                return "Effect Duration: 3 chapters\nWhen you are allowed to attack first, the opposing unit cannot attack (once per combat).";
+                return "★Cost: Level x10\nDeal damage equal to your level to target enemy. A KO from this effect gives you 2 Wins.";
         }
     }
 
     std::string getQuote() const override {
         switch(GlobalSettings::getInstance().getLanguage()) {
             case Language::English:
-                return "\"This is the privilege of the main character!\" ―Kai";
+                return "\"Charged! Go!\" ―Marc;";
             default:
-                return "\"This is the privilege of the main character!\" ―Kai";
+                return "\"Charged! Go!\" ―Marc;";
         }
     }   
 
     u16 getCost() const override {
-        return 20;
+        // Return 0, but call something later to deduct level * 10 stars from the player
+        return 0;
     }
 };

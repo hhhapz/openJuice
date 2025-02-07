@@ -3,47 +3,47 @@ module;
 #include <memory>
 #include <string>
 
-export module card.standard.base.SakisCookie;
+export module card.standard.base.FinalBattle;
 
 import engine.card.Card;
 import engine.card.CardTypes;
 import engine.utility.GlobalSettings;
 import engine.utility.Utility;
 
-export class SakisCookie: public BoostCard {
+export class FinalBattle: public BattleCard {
 private:
 public:
-    SakisCookie():
-        BoostCard(Rarity::Common, 2, false, 1, 3, 0) {}
+    FinalBattle():
+        BattleCard(Rarity::Rare, 10, false, 4, 1, -2) {}
 
     std::string getName() const override {
         switch (GlobalSettings::getInstance().getLanguage()) {
             case Language::English:
-                return "Saki's Cookie";
+                return "Final Battle";
             default:
-                return "Saki's Cookie";
+                return "Final Battle";
         }
     }
 
     std::string getDescription() const override {
         switch (GlobalSettings::getInstance().getLanguage()) {
             case Language::English:
-                return "Heals 1 HP.";
+                return "This battle will last until either unit suffers KO (Maximum of 10 rounds).";
             default:
-                return "Heals 1 HP.";
+                return "This battle will last until either unit suffers KO (Maximum of 10 rounds).";
         }
     }
 
     std::string getQuote() const override {
         switch (GlobalSettings::getInstance().getLanguage()) {
             case Language::English:
-                return "\"Have a cookie!\" ―Saki";
+                return "\"To protect everyone!\"\n―Suguri & Hime";
             default:
-                return "\"Have a cookie!\" ―Saki";
+                return "\"To protect everyone!\"\n―Suguri & Hime";
         }
     }
 
     u16 getCost() const override {
-        return 3;
+        return 30;
     }
 };

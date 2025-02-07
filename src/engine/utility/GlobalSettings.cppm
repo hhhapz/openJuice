@@ -4,7 +4,7 @@ module;
 
 export module engine.utility.GlobalSettings;
 
-import engine.utility.Language;
+export import :Language;
 
 export class GlobalSettings {
 private:
