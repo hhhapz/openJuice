@@ -16,6 +16,7 @@ To be written.
 
 ## TODO:
 * Allow more build systems (i.e. CMake and GNU Make) to make the project
+* Migrate to standard library modules (once released for GCC 15)
 * Migrate the frontend from CLI printing to FTXUI
 * Implement online multiplayer functionality
 * Implement a game AI
