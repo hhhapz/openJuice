@@ -2,4 +2,5 @@ module;
 
 export module card.Cards;
 
-export import card.cards.ProtagonistsPrivilege;
+export import card.StandardCards;
+export import card.HyperCards;
