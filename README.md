@@ -6,6 +6,11 @@ This does not aim to be a one-to-one recreation of the game but rather a port of
 
 Check out my [Rust rewrite](https://github.com/mikomikotaishi/openjuice-rs) (no active development until this is finished).
 
+## Build:
+`xmake project -k compile_commands` to generate `compile_commands.json` (if using Clang). 
+
+`xmake` to build. `xmake run` to run.
+
 ## Usage:
 To be written.
 
