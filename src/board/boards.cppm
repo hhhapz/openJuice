@@ -12,7 +12,7 @@ export module board.Boards;
 
 import utility.Utility;
 
-struct BoardInfo {
+export struct BoardInfo {
     u32 id;
     std::string boardName;
     u8 boardWidth;
@@ -20,11 +20,12 @@ struct BoardInfo {
     std::array<std::pair<u8, u8>, GameInfo::MAX_PLAYERS> homePanels;
 };
 
-class BoardLibrary {
+export class BoardLibrary {
 private:
     BoardLibrary() {
         loadBoards();
     }
+
     BoardLibrary(const BoardLibrary&) = delete;
     BoardLibrary& operator=(const BoardLibrary&) = delete;
     std::vector<BoardInfo> boardList;
@@ -33,8 +34,9 @@ public:
         static BoardLibrary instance;
         return instance;
     }
+
     void loadBoards(const std::string& directory = "./maps") {
-        for (const auto& entry: std::filesystem::directory_iterator(directory)) {
+        for (const std::filesystem::directory_entry& entry: std::filesystem::directory_iterator(directory)) {
             if (entry.is_regular_file() && entry.path().extension() == ".toml") {
                 std::string boardPath = entry.path().string();
                 toml::table data = toml::parse_file(boardPath);
@@ -66,6 +68,7 @@ public:
             }
         }
     }
+
     const BoardInfo& getBoard(u32 id) const {
         return boardList[id - 1];
     }

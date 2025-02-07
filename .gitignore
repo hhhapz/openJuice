@@ -49,7 +49,9 @@ modules_cache/
 gcm.cache/
 openJuice
 
-# Temporary
+# Build systems
+/.xmake
+/.cache
 CMakeCache.txt
 
 # Added by cargo

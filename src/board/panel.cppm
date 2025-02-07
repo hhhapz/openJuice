@@ -8,7 +8,7 @@ export module board.Panel;
 
 import utility.Utility;
 
-enum class PanelType {
+export enum class PanelType {
     Home, // 0 - Home panel - level up on achieving norma and heal 1 HP
     Neutral, // 1 - Nothing happens
     Bonus, // 2 - Roll to gain star amount multiplied by level
@@ -37,14 +37,14 @@ enum class PanelType {
     Player_Encounter // 25 - UNUSED, face a random player in combat
 };
 
-enum class Direction {
+export enum class Direction {
     Up, // 0
     Left, // 1
     Right, // 2
     Down, //3
 };
 
-class Panel {
+export class Panel {
 private:
     u16 panelID;
     PanelType type;
@@ -55,11 +55,14 @@ private:
 public:
     Panel(u16 id, PanelType type, const std::bitset<4>& enters, const std::bitset<4>& exits):
         panelID{id}, type{type}, enters{enters}, exits{exits} {}
+    
     PanelType getType() const {
         return type;
     }
+
     void setType(PanelType newType) {
         type = newType;
     }
+
     void setNeighbour(Direction direction, std::shared_ptr<Panel> neighbour);
 };

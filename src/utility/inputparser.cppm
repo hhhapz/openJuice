@@ -29,6 +29,7 @@ public:
         for (i32 i = 1; i < argc; ++i) 
             args.push_back(std::string(argv[i]));
     }
+
     InputParser(i32 argc, char* argv[], const std::vector<std::string>& validOptions): 
         validOptions(validOptions) {
         #ifdef DEBUG
@@ -55,6 +56,7 @@ public:
             return *it;
         return "";
     }
+    
     bool optionExists(const std::string& option) const {
         return std::find(args.begin(), args.end(), option) != args.end();
     }

@@ -10,11 +10,13 @@ export module utility.Debug;
 class Debug: public std::ostream {
 private:
     std::unique_ptr<std::ofstream> debugFile;
+
     Debug():
         debugFile(std::make_unique<std::ofstream>("debug.txt", std::ios::app)) {
         if (!debugFile->is_open())
             std::println("Failed to open debug.txt!");
     }
+    
     ~Debug() = default;
     Debug(const Debug&) = delete;
     Debug(Debug&&) = delete;
@@ -26,6 +28,7 @@ public:
         static Debug instance;
         return instance;
     }
+
     template<typename T>
     Debug& operator<<(const T& message);
 };

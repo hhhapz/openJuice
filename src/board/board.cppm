@@ -19,7 +19,7 @@ static constexpr std::array<std::pair<i32, i32>, 8> directionOffsets = {{
     { 1, -1}, { 1,  0}, { 1,  1}  // Bottom-left, Bottom, Bottom-right
 }};
 
-class Board {
+export class Board {
 private:
     std::array<std::array<std::unique_ptr<Panel>, GameInfo::GAME_MAX_WIDTH>, GameInfo::GAME_MAX_HEIGHT> gameBoard;
     std::array<std::pair<u8, u8>, GameInfo::MAX_PLAYERS> homePanels;
@@ -27,8 +27,9 @@ private:
     u8 boardHeight;
 public:
     Board(u32 id) {
-        const auto& boardData = BoardLibrary::getInstance().getBoard(id);
+        const BoardInfo& boardData = BoardLibrary::getInstance().getBoard(id);
     }
+
     void printBoardASCII() const {
         std::println("█");
     }
