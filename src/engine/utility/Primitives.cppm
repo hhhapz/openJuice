@@ -2,7 +2,7 @@ module;
 
 #include <cstdint>
 
-export module utility.Primitives;
+export module engine.utility.Primitives;
 
 export using i8 = int8_t;
 export using i16 = int16_t;

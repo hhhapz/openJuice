@@ -8,9 +8,9 @@ module;
 
 #include <toml++/toml.hpp>
 
-export module board.Boards;
+export module engine.board.Boards;
 
-import utility.Utility;
+import engine.utility.Utility;
 
 export struct BoardInfo {
     u32 id;

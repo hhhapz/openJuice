@@ -12,9 +12,9 @@ module;
 #include <unistd.h>
 #endif
 
-export module utility.Utility;
+export module engine.utility.Utility;
 
-export import utility.Primitives;
+export import engine.utility.Primitives;
 
 export namespace GameInfo {
     constexpr usize GAME_MAX_WIDTH = 20;

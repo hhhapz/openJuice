@@ -6,9 +6,9 @@ module;
 #include <stdexcept>
 #include <vector>
 
-export module utility.InputParser;
+export module engine.utility.InputParser;
 
-import utility.Utility;
+import engine.utility.Utility;
 
 bool isInteger(const std::string& s) {
     try {

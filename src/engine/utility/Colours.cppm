@@ -1,8 +1,8 @@
 module;
 
-export module utility.Colours;
+export module engine.utility.Colours;
 
-import utility.Primitives;
+import engine.utility.Primitives;
 
 export struct Colour {
     u8 r;

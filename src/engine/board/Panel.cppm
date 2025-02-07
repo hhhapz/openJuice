@@ -4,9 +4,9 @@ module;
 #include <bitset>
 #include <memory>
 
-export module board.Panel;
+export module engine.board.Panel;
 
-import utility.Utility;
+import engine.utility.Utility;
 
 export enum class PanelType {
     Home, // 0 - Home panel - level up on achieving norma and heal 1 HP
@@ -25,7 +25,7 @@ export enum class PanelType {
     Boss_Encounter, // 13 - Face this board's boss in combat
     Move, // 14 - Roll and move again
     Move2, // 15 - Roll twice the dice for Move panel
-    Ice, // 16 -Slide to the next panel without deducting from the move roll
+    Ice, // 16 - Slide to the next panel without deducting from the move roll
     Goo, // 17 - Deduct 2 points from the move roll instead of 1
     Heal, // 18 - Heal 1 HP
     Heal2, // 19 - Heal 2 HP
@@ -64,5 +64,19 @@ public:
         type = newType;
     }
 
-    void setNeighbour(Direction direction, std::shared_ptr<Panel> neighbour);
+    void setNeighbour(Direction direction, std::shared_ptr<Panel> neighbour) {
+        #ifdef DEBUG
+        neighbours.at(static_cast<usize>(direction)) = neighbour;
+        #else
+        neighbours[static_cast<usize>(direction)] = neighbour;
+        #endif
+    }
+
+    std::shared_ptr<Panel> getNeighbour(Direction direction) const {
+        #ifdef DEBUG
+        return neighbours.at(static_cast<usize>(direction)).lock();
+        #else
+        return neighbours[static_cast<usize>(direction)].lock();
+        #endif
+    }
 };

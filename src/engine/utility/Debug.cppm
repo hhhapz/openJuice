@@ -5,7 +5,7 @@ module;
 #include <memory>
 #include <print>
 
-export module utility.Debug;
+export module engine.utility.Debug;
 
 class Debug: public std::ostream {
 private:
