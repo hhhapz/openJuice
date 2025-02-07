@@ -15,8 +15,8 @@ private:
     i8 defence;
     i8 evade;
 public:
-    Entity(u8 id, u8 health, u8 maxHealth, i8 attack, i8 defence, i8 evade):
-        id{id}, health{health}, maxHealth{maxHealth}, attack{attack}, defence{defence}, evade{evade} {}
+    Entity(u8 id, u8 health, i8 attack, i8 defence, i8 evade):
+        id{id}, health{health}, attack{attack}, defence{defence}, evade{evade} {}
 
     u8 getID() const {
         return id;
@@ -24,10 +24,6 @@ public:
 
     u8 getHealth() const {
         return health;
-    }
-
-    u8 getMaxHealth() const {
-        return maxHealth;
     }
 
     i8 getAttack() const {

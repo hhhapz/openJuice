@@ -30,7 +30,6 @@ private:
     u8 level;
     i8 limitPerDeck; // -1 if hyper, positive otherwise.
     i8 deckPoints; // -1 if hyper, non-negative otherwise.
-    std::string name;
 public:
     Card(CardType cardType, Rarity rarity, u16 id, bool hyper, u8 level, i8 limit, i8 deckPoints):
         type{cardType}, rarity{rarity}, id{id}, hyper{hyper}, level{level}, limitPerDeck{limit}, deckPoints{deckPoints} {}
