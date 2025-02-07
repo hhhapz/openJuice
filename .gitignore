@@ -50,9 +50,7 @@ gcm.cache/
 openJuice
 
 # Temporary
-includeold/
-srcold/
-srcmodules/
+CMakeCache.txt
 
 # Added by cargo
 

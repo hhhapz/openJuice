@@ -1,10 +1,12 @@
-#pragma once
+module;
 
 #include <array>
 #include <bitset>
 #include <memory>
 
-#include "../utility/utility.hpp"
+export module board.Panel;
+
+import utility.Utility;
 
 enum class PanelType {
     Home, // 0 - Home panel - level up on achieving norma and heal 1 HP
@@ -51,8 +53,13 @@ private:
     std::bitset<4> exits;
     std::array<std::weak_ptr<Panel>, 4> neighbours;
 public:
-    Panel(u16 id, PanelType type, const std::bitset<4>& enters, const std::bitset<4>& exits);
-    PanelType getType() const;
-    void setType(PanelType newType);
+    Panel(u16 id, PanelType type, const std::bitset<4>& enters, const std::bitset<4>& exits):
+        panelID{id}, type{type}, enters{enters}, exits{exits} {}
+    PanelType getType() const {
+        return type;
+    }
+    void setType(PanelType newType) {
+        type = newType;
+    }
     void setNeighbour(Direction direction, std::shared_ptr<Panel> neighbour);
 };

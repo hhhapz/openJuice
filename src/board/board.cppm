@@ -1,14 +1,17 @@
-#pragma once
+module;
 
 #include <array>
 #include <memory>
+#include <print>
 #include <utility>
 
 #include <toml++/toml.hpp>
 
-#include "boards.hpp"
-#include "panel.hpp"
-#include "../utility/utility.hpp"
+export module board.Board;
+
+import board.Boards;
+import board.Panel;
+import utility.Utility;
 
 static constexpr std::array<std::pair<i32, i32>, 8> directionOffsets = {{
     {-1, -1}, {-1,  0}, {-1,  1}, // Top-left, Top, Top-right
@@ -23,6 +26,10 @@ private:
     u8 boardWidth;
     u8 boardHeight;
 public:
-    Board(u32 id);
-    void printBoardASCII() const;
+    Board(u32 id) {
+        const auto& boardData = BoardLibrary::getInstance().getBoard(id);
+    }
+    void printBoardASCII() const {
+        std::println("█");
+    }
 };
