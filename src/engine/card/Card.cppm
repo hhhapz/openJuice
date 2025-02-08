@@ -23,7 +23,7 @@ export enum class Rarity {
 };
 
 // Forward declaration
-export class Player;
+// export class Player;
 
 export class Card {
 private:

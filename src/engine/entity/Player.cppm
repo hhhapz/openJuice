@@ -6,6 +6,7 @@ module;
 export module engine.entity.Player;
 
 import engine.card.Card;
+import engine.entity.Entity;
 import engine.utility.Utility;
 
 export class Player: public Entity {
@@ -23,7 +24,7 @@ public:
     }
 
     u8 getWins() const {
-        get wins;
+        return wins;
     }
 
     u8 getLevel() const {

@@ -92,3 +92,6 @@ CMakeCache.txt
 *.exe.dlls/
 *.exe.manifest
 *.pc
+
+# vcpkg
+vcpkg_installed/

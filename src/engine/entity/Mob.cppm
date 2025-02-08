@@ -2,6 +2,6 @@ module;
 
 export module engine.entity.Mob;
 
-export class Mob: public Entity {
+import engine.entity.Entity;
 
-};
+export class Mob: public Entity {};
