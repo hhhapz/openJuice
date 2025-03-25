@@ -32,4 +32,18 @@ export namespace stdlib {
     using OverflowException = std::overflow_error;
     using RuntimeException = std::runtime_error;
     using UnderflowException = std::underflow_error;
+
+    using NestedException = std::nested_exception;
+    using TerminateHandler = std::terminate_handler;
+    using ExceptionPtr = std::exception_ptr;
+
+    using std::uncaught_exceptions;
+    using std::make_exception_ptr;
+    using std::current_exception;
+    using std::rethrow_exception;
+    using std::throw_with_nested;
+    using std::rethrow_if_nested;
+    using std::terminate;
+    using std::get_terminate;
+    using std::set_terminate;
 }

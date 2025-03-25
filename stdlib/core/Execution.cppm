@@ -16,17 +16,18 @@ export module stdlib.core.Execution;
 #endif
 
 /**
- * @namespace stdlib::execution
+ * @namespace stdlib
  * @brief Wrapper namespace for the standard library.
  */
-export namespace stdlib::execution {
+export namespace stdlib {
     template<typename T>
     using IsExecutionPolicy = std::is_execution_policy<T>;
 
     /**
+     * @namespace execution
      * @brief Wrapper namespace for standard library execution operations.
      */
-    namespace Execution {
+    namespace execution {
         using SequencedPolicy = std::execution::sequenced_policy;
         using ParallelPolicy = std::execution::parallel_policy;
         using ParallelUnsequencedPolicy = std::execution::parallel_unsequenced_policy;

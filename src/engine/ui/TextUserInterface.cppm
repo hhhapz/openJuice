@@ -264,7 +264,7 @@ private:
 
             activeComponent = handlingScreen->getComponent();
 
-            screen.PostEvent(Event::Custom);
+            screen.ExitLoopClosure()();
 
         } catch (const Exception& e) {
             DebugLogger::getInstance().log("An error occured in switching screens");
