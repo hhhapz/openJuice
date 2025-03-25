@@ -52,7 +52,7 @@ import unit.CharacterFactory;
 
 using namespace collections;
 using namespace concurrency;
-using fmt::Formatter, fmt::FormatContext, fmt::FormatParseContext;
+using fmt::FormatContext, fmt::FormatParseContext;
 using mem::SharedPtr;
 
 using namespace ecs;

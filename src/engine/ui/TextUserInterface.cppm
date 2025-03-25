@@ -125,6 +125,7 @@ private:
                     #ifndef NDEBUG
                     DebugLogger::getInstance().log("Creating Singleplayer Game Lobby screen");
                     #endif
+                    
                     screens[type] = mem::make_shared<SingleplayerGameLobbyScreen>(game, switchCallback);
                     break;
                 case ScreenType::MultiplayerGameLobby:
@@ -225,6 +226,10 @@ private:
      * @param type The screen to switch to
      */
     void switchScreen(ScreenType type) {
+        #ifndef NDEBUG
+        DebugLogger::getInstance().log("TextUserInterface: switching to screen type {}", type);
+        #endif
+
         if (type == ScreenType::Exit) {
             #ifndef NDEBUG
             DebugLogger::getInstance().log("Exiting TUI");
@@ -236,13 +241,26 @@ private:
         }
 
         try {
-            if (screens.contains(currentScreen) && currentScreen != type)
+            if (screens.contains(currentScreen) && currentScreen != type) {
+                #ifndef NDEBUG
+                DebugLogger::getInstance().log("TextUserInterface: deactivating current screen {}", currentScreen);
+                #endif
+                
                 screens[currentScreen]->onDeactivate();
+            }
 
             currentScreen = type;
 
+            #ifndef NDEBUG
+            DebugLogger::getInstance().log("TextUserInterface: getting new screen {}", currentScreen);
+            #endif
+
             SharedPtr<TUIScreen> handlingScreen = getScreen(type);
             handlingScreen->onActivate();
+
+            #ifndef NDEBUG
+            DebugLogger::getInstance().log("TextUserInterface: screen switch complete");
+            #endif
 
             activeComponent = handlingScreen->getComponent();
 

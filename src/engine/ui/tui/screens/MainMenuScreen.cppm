@@ -66,7 +66,7 @@ private:
 
         menu = Menu(&menuOptions, &selectedOption);
 
-        Component componentWithEvents = CatchEvent(menu, [&](Event event) -> bool {
+        Component componentWithEvents = CatchEvent(menu, [this](Event event) -> bool {
             if ((event.is_mouse() && event.mouse().button == Mouse::Left) || (event == Event::Return)) {
                 switch (selectedOption) {
                     case 0: // Multiplayer
