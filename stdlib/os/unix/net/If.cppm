@@ -1,0 +1,36 @@
+/**
+ * @file If.cppm
+ * @brief Module file for Unix local network interfacing operations.
+ *
+ * This file contains the implementation of the Unix local networking interfacing operations from the POSIX libraries.
+ */
+
+module;
+
+#ifdef __unix__
+#include <net/if.h>
+#endif
+
+#ifdef NO_RESERVED_STD
+export module std.os.unix.net.If;
+#else
+export module stdlib.os.unix.net.If;
+#endif
+
+/**
+ * @namespace stdlib::os::posix::net
+ * @brief Wrapper namespace for Unix POSIX operations.
+ */
+export namespace stdlib::os::posix::net {
+    #ifdef __unix__
+    using IfAddr = ::ifaddr;
+    using IfMap = ::ifmap;
+    using IfReq = ::ifreq;
+    using IfConf = ::ifconf;
+
+    using ::if_nametoindex;
+    using ::if_indextoname;
+    using ::if_nameindex;
+    using ::if_freenameindex;
+    #endif
+}

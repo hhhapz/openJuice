@@ -1,0 +1,15 @@
+[requires]
+boost/1.87.0
+libsdl/3.2.4
+ftxui/5.0.0
+tomlplusplus/3.4.0
+
+[generators]
+CMakeDeps
+CMakeToolchain
+
+[options]
+boost:shared=False
+boost:header_only=False
+boost:without_regex=False
+boost:without_asio=False

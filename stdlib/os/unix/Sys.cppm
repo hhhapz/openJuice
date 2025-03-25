@@ -1,0 +1,142 @@
+/**
+ * @file Net.cppm
+ * @brief Module file for Unix system operations.
+ *
+ * This file contains the implementation of the Unix system operations from the POSIX libraries.
+ */
+
+#ifdef NO_RESERVED_STD
+export module std.os.unix.sys;
+#else
+export module stdlib.os.unix.sys;
+#endif
+
+#ifdef NO_RESERVED_STD
+export import std.os.unix.sys.Acct;
+export import std.os.unix.sys.Acl;
+export import std.os.unix.sys.AuxV;
+export import std.os.unix.sys.Capability;
+export import std.os.unix.sys.EPoll;
+export import std.os.unix.sys.EventFD;
+export import std.os.unix.sys.FANotify;
+export import std.os.unix.sys.File;
+export import std.os.unix.sys.FSUID;
+export import std.os.unix.sys.GMon;
+export import std.os.unix.sys.GMonOut;
+export import std.os.unix.sys.INotify;
+export import std.os.unix.sys.IO;
+export import std.os.unix.sys.IOCtl;
+export import std.os.unix.sys.IPC;
+export import std.os.unix.sys.KLog;
+export import std.os.unix.sys.MMan;
+export import std.os.unix.sys.Mount;
+export import std.os.unix.sys.Msg;
+export import std.os.unix.sys.MTIO;
+export import std.os.unix.sys.Perm;
+export import std.os.unix.sys.Personality;
+export import std.os.unix.sys.PIDFD;
+export import std.os.unix.sys.Poll;
+export import std.os.unix.sys.PRCtl;
+export import std.os.unix.sys.ProcFS;
+export import std.os.unix.sys.Profil;
+export import std.os.unix.sys.PSXSysCall;
+export import std.os.unix.sys.PTrace;
+export import std.os.unix.sys.Quota;
+export import std.os.unix.sys.Random;
+export import std.os.unix.sys.Raw;
+export import std.os.unix.sys.Reboot;
+export import std.os.unix.sys.Resource;
+export import std.os.unix.sys.RSeq;
+export import std.os.unix.sys.Select;
+export import std.os.unix.sys.Sem;
+export import std.os.unix.sys.SendFile;
+export import std.os.unix.sys.SHM;
+export import std.os.unix.sys.SignalFD;
+export import std.os.unix.sys.SingleThreaded;
+export import std.os.unix.sys.Socket;
+export import std.os.unix.sys.Stat;
+export import std.os.unix.sys.StatFS;
+export import std.os.unix.sys.StatVFS;
+export import std.os.unix.sys.Swap;
+export import std.os.unix.sys.SysInfo;
+export import std.os.unix.sys.SysLog;
+export import std.os.unix.sys.Time;
+export import std.os.unix.sys.TimeB;
+export import std.os.unix.sys.TimerFD;
+export import std.os.unix.sys.TimeS;
+export import std.os.unix.sys.TimeX;
+export import std.os.unix.sys.TTYChars;
+export import std.os.unix.sys.UContext;
+export import std.os.unix.sys.UIO;
+export import std.os.unix.sys.UN;
+export import std.os.unix.sys.User;
+export import std.os.unix.sys.UTSName;
+export import std.os.unix.sys.VLimit;
+export import std.os.unix.sys.Wait;
+export import std.os.unix.sys.XAttr;
+export import std.os.unix.sys.platform.X86;
+#else
+export import stdlib.os.unix.sys.Acct;
+export import stdlib.os.unix.sys.Acl;
+export import stdlib.os.unix.sys.AuxV;
+export import stdlib.os.unix.sys.Capability;
+export import stdlib.os.unix.sys.EPoll;
+export import stdlib.os.unix.sys.EventFD;
+export import stdlib.os.unix.sys.FANotify;
+export import stdlib.os.unix.sys.File;
+export import stdlib.os.unix.sys.FSUID;
+export import stdlib.os.unix.sys.GMon;
+export import stdlib.os.unix.sys.GMonOut;
+export import stdlib.os.unix.sys.INotify;
+export import stdlib.os.unix.sys.IO;
+export import stdlib.os.unix.sys.IOCtl;
+export import stdlib.os.unix.sys.IPC;
+export import stdlib.os.unix.sys.KLog;
+export import stdlib.os.unix.sys.MMan;
+export import stdlib.os.unix.sys.Mount;
+export import stdlib.os.unix.sys.Msg;
+export import stdlib.os.unix.sys.MTIO;
+export import stdlib.os.unix.sys.Perm;
+export import stdlib.os.unix.sys.Personality;
+export import stdlib.os.unix.sys.PIDFD;
+export import stdlib.os.unix.sys.Poll;
+export import stdlib.os.unix.sys.PRCtl;
+export import stdlib.os.unix.sys.ProcFS;
+export import stdlib.os.unix.sys.Profil;
+export import stdlib.os.unix.sys.PSXSysCall;
+export import stdlib.os.unix.sys.PTrace;
+export import stdlib.os.unix.sys.Quota;
+export import stdlib.os.unix.sys.Random;
+export import stdlib.os.unix.sys.Raw;
+export import stdlib.os.unix.sys.Reboot;
+export import stdlib.os.unix.sys.Resource;
+export import stdlib.os.unix.sys.RSeq;
+export import stdlib.os.unix.sys.Select;
+export import stdlib.os.unix.sys.Sem;
+export import stdlib.os.unix.sys.SendFile;
+export import stdlib.os.unix.sys.SHM;
+export import stdlib.os.unix.sys.SignalFD;
+export import stdlib.os.unix.sys.SingleThreaded;
+export import stdlib.os.unix.sys.Socket;
+export import stdlib.os.unix.sys.Stat;
+export import stdlib.os.unix.sys.StatFS;
+export import stdlib.os.unix.sys.StatVFS;
+export import stdlib.os.unix.sys.Swap;
+export import stdlib.os.unix.sys.SysInfo;
+export import stdlib.os.unix.sys.SysLog;
+export import stdlib.os.unix.sys.Time;
+export import stdlib.os.unix.sys.TimeB;
+export import stdlib.os.unix.sys.TimerFD;
+export import stdlib.os.unix.sys.TimeS;
+export import stdlib.os.unix.sys.TimeX;
+export import stdlib.os.unix.sys.TTYChars;
+export import stdlib.os.unix.sys.UContext;
+export import stdlib.os.unix.sys.UIO;
+export import stdlib.os.unix.sys.UN;
+export import stdlib.os.unix.sys.User;
+export import stdlib.os.unix.sys.UTSName;
+export import stdlib.os.unix.sys.VLimit;
+export import stdlib.os.unix.sys.Wait;
+export import stdlib.os.unix.sys.XAttr;
+export import stdlib.os.unix.sys.platform.X86;
+#endif

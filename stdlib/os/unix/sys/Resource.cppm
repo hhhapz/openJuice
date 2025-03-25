@@ -1,0 +1,34 @@
+/**
+ * @file X86.cppm
+ * @brief Module file for Unix resource usage operations.
+ *
+ * This file contains the implementation of the Unix resource usage operations from the POSIX libraries.
+ */
+
+module;
+
+#ifdef __unix__
+#include <sys/resource.h>
+#endif
+
+#ifdef NO_RESERVED_STD
+export module std.os.unix.sys.Resource;
+#else
+export module stdlib.os.unix.sys.Resource;
+#endif
+
+/**
+ * @namespace stdlib::os::posix::sys
+ * @brief Wrapper namespace for Unix POSIX operations.
+ */
+export namespace stdlib::os::posix::sys {
+    #ifdef __unix__
+    using ::getrlimit;
+    using ::getrlimit64;
+    using ::setrlimit;
+    using ::setrlimit64;
+    using ::getrusage;
+    using ::getpriority;
+    using ::setpriority;
+    #endif
+}
