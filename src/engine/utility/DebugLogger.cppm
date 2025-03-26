@@ -44,7 +44,7 @@ private:
     /**
      * @brief Private constructor to prevent instantiation.
      *
-     * @throws ioSBaseException (std::ios_base::failure) if it fails to open debug.txt
+     * @throws IOSBaseException (std::ios_base::failure) if it fails to open debug.txt
      */
     DebugLogger():
         OStream(nullptr) {

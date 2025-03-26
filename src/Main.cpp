@@ -25,23 +25,39 @@ import engine.utility.inputparser.InputParser;
 using namespace collections;
 
 /**
- * @brief The main function of the openJuice application.
- *
- * @param argc Number of command line arguments
- * @param argv Command line arguments
- * @return Exit code
- * @throws RuntimeException (std::runtime_error), should never happen
+ * @class Main
+ * @brief Utility Main class to directly handle args as a vector
  */
-int main(int argc, char* argv[]) {
-    LaunchMode lm;
-    GlobalSettings::getInstance().setProgramName(argv[0]);
-    Vector<String> args(argv + 1, argv + argc);
-    InputParser inputs(args);
-    try {
+class Main {
+private:
+    /**
+     * @brief Private constructor to prevent instantiation.
+     */
+    Main() = default;
+
+    /**
+     * @brief Deleted copy constructor to prevent copying.
+     */
+    Main(const Main&) = delete;
+
+    /**
+     * @brief Deleted copy assignment operator to prevent copying.
+     */
+    Main& operator=(const Main&) = delete;
+public:
+    /**
+     * @brief The main function of the openJuice application.
+     *
+     * @param args Vector of command line arguments
+     * @throws RuntimeException (std::runtime_error), should never happen
+     */
+    static void main(Vector<String>& args) {
+        LaunchMode lm;
+        InputParser inputs(args);
         switch (inputs.handleInputs()) {
             case -1:
                 // -1: Help message or version message was called
-                return 0;
+                return;
             case 0:
                 // 0: Game runs in TUI mode
                 lm = LaunchMode::TUI;
@@ -56,6 +72,21 @@ int main(int argc, char* argv[]) {
         }
         Engine eng(lm);
         eng.init();
+    }
+};
+
+/**
+ * @brief The main function of the openJuice application.
+ *
+ * @param argc Number of command line arguments
+ * @param argv Command line arguments
+ * @return Exit code
+ */
+int main(int argc, char* argv[]) {
+    try {
+        GlobalSettings::getInstance().setProgramName(argv[0]);
+        Vector<String> args(argv + 1, argv + argc);
+        Main::main(args);
     } catch (const Exception& e) {
         DebugLogger::getInstance().log("An error occured: {}", e.what());
         return 1;

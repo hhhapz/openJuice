@@ -54,8 +54,7 @@ public:
 
     /**
      * @brief Constructor that initialises the parser with command line arguments.
-     * @param argc Number of command line arguments.
-     * @param argv Array of command line arguments.
+     * @param args Vector of command line arguments
      * @param envp Array of environment variable arguments.
      */
      InputParser(Vector<String>& args, char* envp[] = nullptr):
