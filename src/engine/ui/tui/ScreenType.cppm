@@ -12,9 +12,11 @@ export module engine.ui.tui.ScreenType;
 #ifdef NO_RESERVED_STD
 import std.core;
 import std.fmt;
+import std.sys;
 #else
 import stdlib.core;
 import stdlib.fmt;
+import stdlib.sys;
 #endif
 
 using fmt::FormatContext, fmt::FormatParseContext;
@@ -52,7 +54,7 @@ export enum class ScreenType {
 // Must use std::formatter, not fmt::Formatter
 template<>
 struct std::formatter<ScreenType> {
-    constexpr auto parse(FormatParseContext& ctx) {
+    constexpr auto parse(FormatParseContext& ctx) -> const char* {
         return ctx.begin();
     }
 
@@ -129,8 +131,7 @@ struct std::formatter<ScreenType> {
                 name = "Pause";
                 break;
             default:
-                name = "Unknown Screen";
-                break;
+                sys::unreachable();
         }
         return fmt::format_to(ctx.out(), "{}", name);
     }

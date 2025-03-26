@@ -221,6 +221,7 @@ public:
         #ifndef NDEBUG
         DebugLogger::getInstance().log("Stopping engine");
         #endif
+        
         running.store(false);
         gameUpdateCV.notify_all();
     }

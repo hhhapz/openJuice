@@ -127,6 +127,15 @@ FetchContent_Declare(
     GIT_REPOSITORY https://github.com/ArthurSonzogni/ftxui
     GIT_TAG main
 )
+FetchContent_Declare(ftxui-grid-container
+    GIT_REPOSITORY https://github.com/mingsheng13/grid-container-ftxui
+    GIT_TAG master
+)
+# Use forked version for now
+FetchContent_Declare(ftxui-ip-input
+    GIT_REPOSITORY https://github.com/mikomikotaishi/ip-input-ftxui
+    GIT_TAG main
+)
 FetchContent_Declare(
     SDL3
     GIT_REPOSITORY https://github.com/libsdl-org/SDL.git
@@ -170,7 +179,9 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(
     Boost 
-    ftxui 
+    ftxui
+    ftxui-grid-container
+    ftxui-ip-input 
     SDL3 
     SDL3_image 
     SDL3_mixer 
@@ -190,14 +201,15 @@ add_subdirectory(src)
 
 target_link_libraries(openJuice PRIVATE 
     modules
+    ftxui_modules
     SDL3::SDL3
     SDL3_image::SDL3_image
     SDL3_ttf::SDL3_ttf
     SDL3_mixer::SDL3_mixer
     SDL3_net::SDL3_net
+    sfml
 )
 target_include_directories(openJuice PRIVATE 
-    ${ftxui_INCLUDE_DIRS}
     ${SFML_INCLUDE_DIRECTORIES}
     ${tomlplusplus_INCLUDE_DIRS} 
 )

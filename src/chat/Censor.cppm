@@ -26,9 +26,11 @@ import stdlib.fmt;
 import engine.managers.GlobalSettings;
 import engine.utility.EngineUtility;
 import engine.utility.Exceptions;
+import engine.utility.GameInfo;
 import engine.utility.Language;
 
 using namespace collections;
+using io::IFStream;
 
 using namespace exceptions;
 
@@ -41,13 +43,15 @@ using namespace exceptions;
 export class Censor {
 private:
     Vector<String> blacklist; ///< List of inappropriate words to censor.
+    const String gameLanguageCode; ///< The language code currently being used by the game.
     char censorChar; ///< Character used for censoring.
 
     /**
      * @brief Private constructor to prevent instantiation.
      * @throws InvalidLanguageException if no valid language is found
      */
-    Censor() {
+    Censor():
+        gameLanguageCode{GlobalSettings::languageToString(GlobalSettings::getInstance().getLanguage())} {
         Language gameLanguage = GlobalSettings::getInstance().getLanguage();
         switch (gameLanguage) {
             case Language::English:
@@ -75,42 +79,13 @@ private:
      */
     void loadBlacklist(Language language) {
         DebugLogger::getInstance().log("Loading blacklist for language of value {}", static_cast<u8>(language));
-        String filename;
-        switch (language) {
-            case Language::English:
-                filename = "blacklist/blacklist_en.txt";
-                break;
-            case Language::Japanese:
-                filename = "blacklist/blacklist_jp.txt";
-                break;
-            case Language::SimplifiedChinese:
-                filename = "blacklist/blacklist_chs.txt";
-                break;
-            case Language::TraditionalChinese:
-                filename = "blacklist/blacklist_cht.txt";
-                break;
-            case Language::Russian:
-                filename = "blacklist/blacklist_ru.txt";
-                break;
-            case Language::Korean:
-                filename = "blacklist/blacklist_ko.txt";
-                break;
-            case Language::Spanish:
-                filename = "blacklist/blacklist_sp.txt";
-                break;
-            case Language::PortugueseBR:
-                filename = "blacklist/blacklist_ptbr.txt";
-                break;
-            default:
-                throw InvalidLanguageException("Invalid language code");
-        }
+        String filename = fmt::format(RuntimePaths::PATH_BLACKLIST_FILE, gameLanguageCode);
         blacklist.clear();
         String word;
-        io::IFStream file(filename);
-        while (io::getline(file, word)) {
+        IFStream file(filename);
+        while (io::getline(file, word))
             if (!word.empty())
                 blacklist.push_back(word);
-        }
     }
 
     /**

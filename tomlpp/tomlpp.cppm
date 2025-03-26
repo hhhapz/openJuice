@@ -18,7 +18,7 @@ export namespace toml {
      * @namespace literals
      * @brief The toml++ namespace toml::literals::
      */
-    namespace literals {
+    inline namespace literals {
         using toml::literals::operator""_toml;
         using toml::literals::operator""_tpath;
     }

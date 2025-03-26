@@ -2,11 +2,11 @@
 
 ## Overview:
 🍊 Open-source re-engineering of the game [*100% Orange Juice!*](https://store.steampowered.com/app/282800).
-This does not aim to be a one-to-one recreation of the game but rather a port of the game as a CLI program.
+This does not aim to be a one-to-one recreation of the game but rather a port of the game as a TUI program.
 
 This project is written independently for fun and as a learning project, and not written for the purposes of piracy. The author(s) encourage the user to support the original developers. No code has been obtained through decompiling, disassembling, or reverse-engineering the original program.
 
-Tested for Linux. Windows and MacOS support to come.
+Tested for Linux. Windows and MacOS support untested.
 
 ~~Check out my [Rust rewrite](https://github.com/mikomikotaishi/openjuice-rs).~~ No active development until this is finished; currently privated.
 
@@ -64,6 +64,8 @@ Build script for openJuice project
 ```
 
 ### XMake
+**Warning: currently not working. Please use CMake instead.**
+
 `xmake project -k compile_commands` to generate `compile_commands.json` (if using Clang).
 
 `xmake` to build. `xmake run` to run.
@@ -78,6 +80,16 @@ To be written.
 * Resolve all `#warning` markers (none currently!)
 * Complete design document
 * Continue documentation (Doxygen)
-* Migrate the frontend from CLI printing to FTXUI
 * Implement online multiplayer functionality
 * Implement a game AI
+
+## Dependencies
+This project uses the following external libraries:
+- [Boost.Asio](https://github.com/boostorg/asio)
+- [Boost.Regex](https://github.com/boostorg/regex)
+- [FTXUI](https://github.com/ArthurSonzogni/FTXUI)
+  - [grid-container-ftxui](https://github.com/mingsheng13/grid-container-ftxui)
+  - [ip-input-ftxui](https://github.com/mingsheng13/ip-input-ftxui) (due to errors in the original implementation, currently using a forked version [here](https://github.com/mikomikotaishi/ip-input-ftxui))
+- [SDL](https://github.com/libsdl-org/SDL)
+- [SFML](https://github.com/SFML/SFML)
+- [tomlplusplus](https://github.com/marzer/tomlplusplus)

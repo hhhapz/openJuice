@@ -19,6 +19,7 @@ import std.concurrency;
 import std.io;
 import std.fmt;
 import std.mem;
+import std.sys;
 import std.text;
 #else
 import stdlib.core;
@@ -27,6 +28,7 @@ import stdlib.concurrency;
 import stdlib.io;
 import stdlib.fmt;
 import stdlib.mem;
+import stdlib.sys;
 import stdlib.text;
 #endif
 
@@ -75,7 +77,7 @@ export enum class GamePhase {
 // Must use std::formatter, not fmt::Formatter
 template<>
 struct std::formatter<GamePhase> {
-    constexpr auto parse(FormatParseContext& ctx) {
+    constexpr auto parse(FormatParseContext& ctx) -> const char* {
         return ctx.begin();
     }
 
@@ -101,8 +103,7 @@ struct std::formatter<GamePhase> {
                 name = "Paused"; 
                 break;
             default:
-                name = "Unknown"; 
-                break;
+                sys::unreachable();
         }
         return fmt::format_to(ctx.out(), "{}", name);
     }

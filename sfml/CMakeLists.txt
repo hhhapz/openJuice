@@ -7,6 +7,15 @@ target_sources(sfml
 
 configure_cpp_module_target(sfml)
 
+target_link_libraries(sfml
+    PUBLIC
+    SFML::Audio 
+    SFML::Graphics 
+    SFML::Network 
+    SFML::System 
+    SFML::Window
+)
+
 ## Ignore module circular dependencies, remove when CMake fixes this
 set_target_properties(sfml PROPERTIES 
     CXX_STANDARD 23 

@@ -13,6 +13,8 @@ target_link_libraries(ftxui_modules
     ftxui::screen
     ftxui::dom
     ftxui::component
+    ftxui-grid-container
+    ftxui-ip-input 
 )
 
 target_include_directories(ftxui_modules
