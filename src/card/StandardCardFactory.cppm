@@ -27,8 +27,9 @@ import engine.utility.EngineUtility;
 import engine.utility.Exceptions;
 import card.StandardCards;
 
+using stdlib::mem::SharedPtr;
+
 using namespace exceptions;
-using mem::SharedPtr;
 
 /**
  * @class StandardCardFactory

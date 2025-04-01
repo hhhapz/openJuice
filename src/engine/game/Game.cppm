@@ -52,10 +52,11 @@ import unit.BasicEnemyFactory;
 import unit.BossEnemyFactory;
 import unit.CharacterFactory;
 
-using namespace collections;
-using namespace concurrency;
-using fmt::FormatContext, fmt::FormatParseContext;
-using mem::SharedPtr;
+using namespace stdlib::collections;
+using namespace stdlib::concurrency;
+using stdlib::fmt::FormatContext;
+using stdlib::fmt::FormatParseContext;
+using stdlib::mem::SharedPtr;
 
 using namespace ecs;
 using namespace ecs::components;

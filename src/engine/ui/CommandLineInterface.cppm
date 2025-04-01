@@ -21,8 +21,8 @@ import engine.game.Game;
 import engine.ui.cli.CLIUtils;
 import engine.ui.UserInterface;
 
-using namespace concurrency;
-using mem::SharedPtr;
+using namespace stdlib::concurrency;
+using stdlib::mem::SharedPtr;
 
 /**
  * @class CommandLineInterface

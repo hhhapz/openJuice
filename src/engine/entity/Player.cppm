@@ -24,8 +24,8 @@ import engine.entity.Entity;
 import engine.unit.Unit;
 import engine.unit.Character;
 
-using namespace collections;
-using mem::SharedPtr;
+using namespace stdlib::collections;
+using stdlib::mem::SharedPtr;
 
 using namespace ecs;
 using namespace ecs::components;

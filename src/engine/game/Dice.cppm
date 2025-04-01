@@ -22,8 +22,8 @@ import stdlib.concurrency;
 import engine.utility.GameInfo;
 import engine.utility.RandomNumberGenerator;
 
-using namespace collections;
-using namespace concurrency;
+using namespace stdlib::collections;
+using namespace stdlib::concurrency;
 
 /**
  * @class Dice

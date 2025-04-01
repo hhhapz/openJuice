@@ -29,7 +29,7 @@ import engine.utility.EngineUtility;
 import engine.utility.Messages;
 import engine.utility.inputparser.InputParserBase;
 
-using namespace collections;
+using namespace stdlib::collections;
 
 /**
  * @class InputParser

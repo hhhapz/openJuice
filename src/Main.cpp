@@ -22,7 +22,7 @@ import engine.managers.GlobalSettings;
 import engine.utility.EngineUtility;
 import engine.utility.inputparser.InputParser;
 
-using namespace collections;
+using namespace stdlib::collections;
 
 /**
  * @class Main
@@ -86,6 +86,7 @@ int main(int argc, char* argv[]) {
     try {
         GlobalSettings::getInstance().setProgramName(argv[0]);
         Vector<String> args(argv + 1, argv + argc);
+        GlobalSettings::getInstance().setProgramArgs(args);
         Main::main(args);
     } catch (const Exception& e) {
         DebugLogger::getInstance().log("An error occured: {}", e.what());

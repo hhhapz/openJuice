@@ -21,7 +21,7 @@ import stdlib.core;
 import stdlib.collections;
 #endif
 
-using namespace collections;
+using namespace stdlib::collections;
 
 /**
  * @interface Observer

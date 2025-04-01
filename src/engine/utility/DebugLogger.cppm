@@ -26,8 +26,13 @@ import stdlib.util;
 import engine.utility.GameInfo;
 import engine.utility.TimeFormat;
 
-using io::IOS, io::IOSBaseException, io::OFStream, io::OStream, io::StringStream;
-using mem::SharedPtr, mem::UniquePtr;
+using stdlib::io::IOS; 
+using stdlib::io::IOSBaseException;
+using stdlib::io::OFStream;
+using stdlib::io::OStream;
+using stdlib::io::StringStream;
+using stdlib::mem::SharedPtr;
+using stdlib::mem::UniquePtr;
 
 /**
  * @class DebugLogger

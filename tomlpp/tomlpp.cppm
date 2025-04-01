@@ -1,13 +1,17 @@
 /**
  * @file tomlpp.cppm
- * @brief File containing the module declaration for toml++.
+ * @brief File containing the module declaration for toml++ 
+ * This module re-exports tomlplusplus to tomlpp for convenience, and 
+ * re-aliases all tomlplusplus types to PascalCase.
  */
 
 module;
 
-#include <toml++/toml.hpp>
+// #include <toml++/toml.hpp>
 
 export module tomlpp;
+
+import tomlplusplus;
 
 /**
  * @namespace toml

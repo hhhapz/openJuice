@@ -30,8 +30,9 @@ import engine.board.Panel;
 import engine.utility.Colours;
 import engine.utility.GameInfo;
 
-using namespace collections;
-using mem::SharedPtr, mem::UniquePtr;
+using namespace stdlib::collections;
+using stdlib::mem::SharedPtr;
+using stdlib::mem::UniquePtr;
 
 /**
  * @brief Direction offsets

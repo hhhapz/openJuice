@@ -15,7 +15,7 @@ import stdlib.core;
 import stdlib.mem;
 #endif
 
-using mem::SharedPtr;
+using stdlib::mem::SharedPtr;
 
 /**
  * @interface UnitFactory

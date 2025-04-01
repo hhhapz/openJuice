@@ -29,7 +29,7 @@ import stdlib.io;
 import stdlib.text;
 #endif
 
-using namespace collections;
+using namespace stdlib::collections;
 
 /**
  * @brief Checks if a string represents an integer.

@@ -7,7 +7,23 @@
 
 module;
 
+#ifdef _MSC_VER
+    #pragma warning(push)
+    #pragma warning(disable: 4244)
+    #pragma warning(disable: 4267)
+#else
+    #pragma GCC diagnostic push
+    #pragma GCC diagnostic ignored "-Wconversion"
+    #pragma GCC diagnostic ignored "-Wsign-conversion"
+#endif
+
 #include <boost/asio.hpp>
+
+#ifdef _MSC_VER
+    #pragma warning(pop)
+#else
+    #pragma GCC diagnostic pop
+#endif
 
 export module chat.Chat:ChatClient;
 
@@ -28,8 +44,8 @@ import stdlib.text;
 import engine.managers.GlobalSettings;
 import engine.utility.EngineUtility;
 
-using namespace collections;
-using namespace concurrency;
+using namespace stdlib::collections;
+using namespace stdlib::concurrency;
 
 using namespace boost::asio;
 

@@ -29,8 +29,9 @@ import engine.utility.EngineUtility;
 import engine.utility.GameInfo;
 import engine.utility.Exceptions;
 
-using namespace collections;
-using io::IFStream, io::IOSBaseException;
+using namespace stdlib::collections;
+using stdlib::io::IFStream;
+using stdlib::io::IOSBaseException;
 
 using namespace exceptions;
 

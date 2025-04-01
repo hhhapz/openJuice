@@ -21,8 +21,8 @@ import engine.card.Card;
 import engine.game.EntityComponentSystem;
 import engine.unit.Unit;
 
-using namespace collections;
-using mem::SharedPtr;
+using namespace stdlib::collections;
+using stdlib::mem::SharedPtr;
 
 /**
  * @namespace ecs::components

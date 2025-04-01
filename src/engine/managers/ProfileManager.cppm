@@ -25,7 +25,7 @@ import engine.utility.GameInfo;
 
 import tomlpp;
 
-using io::OFStream;
+using stdlib::io::OFStream;
 
 /**
  * @struct ProfileData

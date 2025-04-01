@@ -19,7 +19,8 @@ import stdlib.fmt;
 import stdlib.sys;
 #endif
 
-using fmt::FormatContext, fmt::FormatParseContext;
+using stdlib::fmt::FormatContext;
+using stdlib::fmt::FormatParseContext;
 
 /**
  * @enum ScreenType

@@ -114,11 +114,12 @@ def cleanBuildDirectory(preserve_deps: bool = False) -> None:
         shutil.rmtree("src/build", ignore_errors=True)
         print(f"{ANSI.GREEN}Build directory fully cleaned.{ANSI.RESET}")
 
-def runCMakeInit(verbose: bool, sanitisers: List[str] = None) -> None:
+def runCMakeInit(verbose: bool, release: bool, sanitisers: List[str] = None) -> None:
     """
     Runs the CMake initialisation process with detailed progress reporting.
 
     @param verbose (bool): If True, prints all output. Otherwise, shows progress indicators.
+    @param release (bool): If True, sets CMake to build for release. Otherwise, builds a debug build.
     @param sanitisers (List[str]): List of sanitisers to enable.
     """
     if sanitisers is None:
@@ -133,6 +134,14 @@ def runCMakeInit(verbose: bool, sanitisers: List[str] = None) -> None:
     leak_san: bool = False
     kernel_san: bool = False
     hardware_san: bool = False
+
+    if release:
+        print(f"{ANSI.BLUE}Building in{ANSI.RESET} Release mode (optimised)")
+        cmake_command.append("-DCMAKE_BUILD_TYPE=Release")
+        
+        if sanitisers:
+            print(f"{ANSI.YELLOW}Note:{ANSI.RESET} Sanitisers disabled in Release mode")
+            sanitisers.clear()
 
     if sanitisers:
         cmake_command.append("-DENABLE_SANITIZERS=ON")
@@ -509,22 +518,26 @@ def main() -> int:
     parser: argparse.ArgumentParser = argparse.ArgumentParser(description="Build script for openJuice project.")
 
     operation_group: argparse._MutuallyExclusiveGroup = parser.add_mutually_exclusive_group()
+    parser.add_argument("-r", "--release", action="store_true",
+                        help="Build in release mode (optimised, no sanitisers, NDEBUG defined)")
+    
     operation_group.add_argument("-c", "--clean", action="store_true",
-                              help="Clean only project source files (no building)")
+                                help="Clean only project source files (no building)")
     operation_group.add_argument("-ca", "--clean-all", action="store_true",
-                              help="Clean entire project, including dependencies (no building)")
+                                help="Clean entire project, including dependencies (no building)")
     operation_group.add_argument("-n", "--new", action="store_true",
-                              help="Cleans the build directory and rebuilds everything, including dependencies (mandatory for first build)")
+                                help="Cleans the build directory and rebuilds everything, including dependencies (mandatory for first build)")
     operation_group.add_argument("-pd", "--preserve-deps", action="store_true",
-                              help="Cleans the build directory and rebuilds everything (excluding dependencies)")
+                                help="Cleans the build directory and rebuilds everything (excluding dependencies)")
 
     parser.add_argument("-g", "--graph", action="store_true", help="Generate dependency graph")
     parser.add_argument("-s", "--sanitiser", "--sanitizer", nargs="+", default=[],
-                      help="Enable sanitisers (address, undefined, thread, memory, leak, all)")
+                        help="Enable sanitisers (address, undefined, thread, memory, leak, all)")
     parser.add_argument("-v", "--verbose", action="store_true",
-                      help="Enable verbose output (lacks progress bar or other graphical features)")
+                        help="Enable verbose output (lacks progress bar or other graphical features)")
 
     args: argparse.Namespace = parser.parse_args()
+    release: bool = args.release
     clean: bool = args.clean
     clean_all: bool = args.clean_all
     generate_graph: bool = args.graph
@@ -544,13 +557,13 @@ def main() -> int:
             return 0
         elif build_new:
             cleanBuildDirectory(False)
-            runCMakeInit(verbose, sanitisers)
+            runCMakeInit(verbose, release, sanitisers)
         elif preserve_deps:
             cleanBuildDirectory(True)
-            runCMakeInit(verbose, sanitisers)
+            runCMakeInit(verbose, release, sanitisers)
         else:
             if sanitisers and not os.path.exists("build/CMakeCache.txt"):
-                runCMakeInit(verbose, sanitisers)
+                runCMakeInit(verbose, release, sanitisers)
 
         runCMakeBuild(verbose)
 

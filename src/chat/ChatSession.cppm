@@ -7,8 +7,24 @@
 
 module;
 
+#ifdef _MSC_VER
+    #pragma warning(push)
+    #pragma warning(disable: 4244)
+    #pragma warning(disable: 4267)
+#else
+    #pragma GCC diagnostic push
+    #pragma GCC diagnostic ignored "-Wconversion"
+    #pragma GCC diagnostic ignored "-Wsign-conversion"
+#endif
+
 #include <boost/asio.hpp>
 #include <boost/system/detail/error_code.hpp>
+
+#ifdef _MSC_VER
+    #pragma warning(pop)
+#else
+    #pragma GCC diagnostic pop
+#endif
 
 export module chat.Chat:ChatSession;
 
@@ -28,8 +44,8 @@ import stdlib.mem;
 import stdlib.util;
 #endif
 
-using namespace collections;
-using mem::SharedPtr;
+using namespace stdlib::collections;
+using stdlib::mem::SharedPtr;
 
 using namespace boost::asio;
 

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.30)
 
-# Forcing Clang temporarily on Unix systems, will probably change this later
+# Forcing Clang temporarily on Unix systems, will probably change this later once module support improves
 if (UNIX)
     set(CMAKE_C_COMPILER "/usr/bin/clang")
     set(CMAKE_CXX_COMPILER "/usr/bin/clang++")
@@ -91,6 +91,18 @@ function(add_sanitisers target)
     endif()
 endfunction()
 
+if(CMAKE_BUILD_TYPE STREQUAL "Release")
+    add_compile_definitions(NDEBUG)
+    
+    if(CMAKE_CXX_COMPILER_ID MATCHES "Clang|GNU")
+        add_compile_options(-O3)
+    elseif(MSVC)
+        add_compile_options(/O2)
+    endif()
+    
+    set(ENABLE_SANITIZERS OFF)
+endif()
+
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -133,7 +145,7 @@ FetchContent_Declare(ftxui-grid-container
 )
 # Use forked version for now
 FetchContent_Declare(ftxui-ip-input
-    GIT_REPOSITORY https://github.com/mikomikotaishi/ip-input-ftxui
+    GIT_REPOSITORY https://github.com/mingsheng13/ip-input-ftxui
     GIT_TAG main
 )
 FetchContent_Declare(
@@ -174,7 +186,7 @@ FetchContent_Declare(
 FetchContent_Declare(
     tomlplusplus
     GIT_REPOSITORY https://github.com/marzer/tomlplusplus.git
-    GIT_TAG        v3.4.0
+    GIT_TAG        master
 )
 
 FetchContent_MakeAvailable(

@@ -33,8 +33,9 @@ import engine.ui.TextUserInterface;
 import engine.ui.UserInterface;
 import engine.utility.EngineUtility;
 
-using namespace concurrency;
-using mem::SharedPtr, mem::UniquePtr;
+using namespace stdlib::concurrency;
+using stdlib::mem::SharedPtr;
+using stdlib::mem::UniquePtr;
 
 /**
  * @enum LaunchMode

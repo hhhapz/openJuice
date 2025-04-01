@@ -13,13 +13,17 @@ export module engine.managers.GlobalSettings;
 
 #ifdef NO_RESERVED_STD
 import std.core;
+import std.collections;
 import std.sys;
 #else
 import stdlib.core;
+import stdlib.collections;
 import stdlib.sys;
 #endif
 
 import engine.utility.Language;
+
+using namespace stdlib::collections;
 
 /**
  * @class GlobalSettings
@@ -30,6 +34,7 @@ import engine.utility.Language;
 export class GlobalSettings {
 private:
     String programName; ///< The name of the executable.
+    Vector<String> programArgs; ///< The program command line arguments.
     Language language; ///< The current language setting.
     f32 deltaTime; ///< The delta-time associated with the frame rate (1/frame rate)
 
@@ -100,6 +105,22 @@ public:
      */
     String getProgramName() const {
         return programName;
+    }
+
+    /**
+     * @brief Set the program arguments.
+     * @param args The arguments of the program to set.
+     */
+    void setProgramArgs(Vector<String>& args) {
+        programArgs = args;
+    }
+
+    /**
+     * @brief Get the program arguments.
+     * @return The program arguments.
+     */
+    Vector<String> getProgramArgs() const {
+        return programArgs;
     }
 
     /**

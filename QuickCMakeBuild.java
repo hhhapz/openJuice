@@ -91,6 +91,10 @@ public class QuickCMakeBuild implements Callable<Integer> {
     @Option(names = {"-g", "--graph"}, description = "Generate dependency graph")
     private boolean generateGraph = false;
 
+    @Option(names = {"-r", "--release"}, description = "Build in release mode (optimised, no sanitisers, NDEBUG defined)")
+    private boolean release = false;
+
+
     @Option(names = {"-s", "--sanitiser", "--sanitizer"}, description = "Enable sanitisers (address, undefined, thread, memory, leak)")
     private List<String> sanitisers = new ArrayList<>();
 
@@ -268,7 +272,7 @@ public class QuickCMakeBuild implements Callable<Integer> {
      * @throws IOException if an I/O error occurs.
      * @throws InterruptedException if interrupted.
      */
-    public static void runCMakeInit(boolean verbose, List<String> sanitisers) throws IOException, InterruptedException {
+    public static void runCMakeInit(boolean verbose, boolean release, List<String> sanitisers) throws IOException, InterruptedException {
         if (verbose) {
             runCommand(Arrays.asList("cmake", "-S", ".", "-G", "Ninja", "-B", "build"), true, false);
             return;
@@ -283,6 +287,16 @@ public class QuickCMakeBuild implements Callable<Integer> {
         boolean leakSan = false;
         boolean kernelSan = false;
         boolean hardwareSan = false;
+
+        if (release) {
+            System.out.println(String.format("%sBuilding in%s Release mode (optimised)", ANSI.BLUE, ANSI.RESET));
+            cmakeCommand.add("-DCMAKE_BUILD_TYPE=Release");
+            
+            if (!sanitisers.isEmpty()) {
+                System.out.println(String.format("%sNote:%s Sanitisers disabled in Release mode", ANSI.YELLOW, ANSI.RESET));
+                sanitisers.clear();
+            }
+        }
 
         if (!sanitisers.isEmpty()) {
             cmakeCommand.add("-DENABLE_SANITIZERS=ON");
@@ -578,7 +592,7 @@ public class QuickCMakeBuild implements Callable<Integer> {
 
             final int barLength = 40;
             final String[] barRef = { 
-                ">" + new String(new char[barLength-1]).replace("\0", " ") 
+                ">" + new String(new char[barLength - 1]).replace("\0", " ") 
             };
             final int[] lastPercentageRef = { 0 };
             final int[] currentStepRef = { 0 };
@@ -767,10 +781,10 @@ public class QuickCMakeBuild implements Callable<Integer> {
                 return 0;
             } else if (buildOperation.buildNew) {
                 cleanBuildDirectory(verbose, false);
-                runCMakeInit(verbose, sanitisers);
+                runCMakeInit(verbose, release, sanitisers);
             } else if (buildOperation.preserveDeps) {
                 cleanBuildDirectory(verbose, true);
-                runCMakeInit(verbose, sanitisers);
+                runCMakeInit(verbose, release, sanitisers);
             }
             
             runCMakeBuild(verbose);

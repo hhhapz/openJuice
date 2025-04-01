@@ -26,8 +26,9 @@ import engine.utility.EngineUtility;
 import engine.utility.Exceptions;
 import unit.Characters;
 
+using stdlib::mem::SharedPtr;
+
 using namespace exceptions;
-using mem::SharedPtr;
 
 /**
  * @class CharacterFactory

@@ -21,8 +21,8 @@ import stdlib.math;
 import stdlib.concurrency;
 #endif
 
-using namespace concurrency;
-using namespace random;
+using namespace stdlib::concurrency;
+using namespace stdlib::random;
 
 /**
  * @class RandomNumberGenerator

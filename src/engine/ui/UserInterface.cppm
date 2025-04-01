@@ -17,8 +17,8 @@ import stdlib.mem;
 
 import engine.game.Game;
 
-using namespace concurrency;
-using mem::SharedPtr;
+using namespace stdlib::concurrency;
+using stdlib::mem::SharedPtr;
 
 /**
  * @class UserInterface

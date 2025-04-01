@@ -7,7 +7,23 @@
 
 module;
 
+#ifdef _MSC_VER
+    #pragma warning(push)
+    #pragma warning(disable: 4244)
+    #pragma warning(disable: 4267)
+#else
+    #pragma GCC diagnostic push
+    #pragma GCC diagnostic ignored "-Wconversion"
+    #pragma GCC diagnostic ignored "-Wsign-conversion"
+#endif
+
 #include <boost/regex.hpp>
+
+#ifdef _MSC_VER
+    #pragma warning(pop)
+#else
+    #pragma GCC diagnostic pop
+#endif
 
 export module chat.Chat:Censor;
 
@@ -29,8 +45,8 @@ import engine.utility.Exceptions;
 import engine.utility.GameInfo;
 import engine.utility.Language;
 
-using namespace collections;
-using io::IFStream;
+using namespace stdlib::collections;
+using stdlib::io::IFStream;
 
 using namespace exceptions;
 

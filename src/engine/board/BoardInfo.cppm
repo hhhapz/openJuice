@@ -17,7 +17,7 @@ import stdlib.collections;
 
 import engine.utility.GameInfo;
 
-using namespace collections;
+using namespace stdlib::collections;
 
 /**
  * @struct BoardInfo

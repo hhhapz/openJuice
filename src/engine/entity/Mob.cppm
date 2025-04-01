@@ -20,7 +20,7 @@ import engine.unit.Enemy;
 import engine.game.EntityComponentSystem;
 import engine.game.ecs.Components;
 
-using mem::SharedPtr;
+using stdlib::mem::SharedPtr;
 
 using namespace ecs;
 using namespace ecs::components;

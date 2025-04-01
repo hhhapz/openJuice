@@ -24,11 +24,11 @@ import engine.game.ecs.Components;
 import engine.utility.Exceptions;
 import engine.utility.RandomNumberGenerator;
 
-using namespace exceptions;
-using mem::SharedPtr;
+using stdlib::mem::SharedPtr;
 
 using namespace ecs;
 using namespace ecs::components;
+using namespace exceptions;
 
 /**
  * @namespace ecs::systems

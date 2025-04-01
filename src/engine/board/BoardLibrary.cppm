@@ -36,9 +36,9 @@ import engine.utility.GameInfo;
 
 import tomlpp;
 
-using namespace collections;
-using filesystem::FileSystemException;
-using mem::SharedPtr;
+using namespace stdlib::collections;
+using stdlib::filesystem::FileSystemException;
+using stdlib::mem::SharedPtr;
 
 /**
  * @class BoardLibrary

@@ -26,8 +26,8 @@ import engine.ui.tui.TUIScreen;
 import ftxui.component;
 import ftxui.dom;
 
-using namespace collections;
-using mem::SharedPtr;
+using namespace stdlib::collections;
+using stdlib::mem::SharedPtr;
 
 using namespace ftxui;
 

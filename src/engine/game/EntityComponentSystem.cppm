@@ -23,8 +23,9 @@ import stdlib.mem;
 import stdlib.util;
 #endif
 
-using namespace collections;
-using mem::SharedPtr, mem::UniquePtr;
+using namespace stdlib::collections;
+using stdlib::mem::SharedPtr;
+using stdlib::mem::UniquePtr;
 
 export using EntityID = u32;
 
